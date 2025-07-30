@@ -1,75 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>サポートページ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>サポートセンター</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'Noto Sans JP', sans-serif;
-      background-color: #f5f5f7;
-      color: #1d1d1f;
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background-image: url('https://cdn.discordapp.com/attachments/1380938547233558711/1400058700865212469/IMG_4486.jpeg?ex=688b41c6&is=6889f046&hm=8b4bc9f91d6fcf704248acebf20953c3326b8020098c0809aa1ab864d079cb14&');
+      background-size: cover;
+      background-position: center;
+      backdrop-filter: blur(4px);
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
-    h1 {
-      font-size: 2em;
+    .search-bar {
+      display: flex;
+      justify-content: center;
       margin-bottom: 40px;
-      text-align: center;
     }
 
-    .grid {
+    .search-bar input {
+      width: 100%;
+      max-width: 600px;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.2);
+      color: white;
+      outline: none;
+    }
+
+    .menu {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 30px;
     }
 
-    .card {
-      background-color: white;
-      border-radius: 16px;
-      padding: 30px 20px;
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.05);
+    .glass {
+      background-color: rgba(255, 243, 243, 0.2);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      padding: 30px;
       text-align: center;
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      color: white;
+      font-size: 20px;
+      transition: transform 0.2s;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h2 {
-      font-size: 1.2em;
-      margin: 0;
-      color: #0071e3;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.5em;
-      }
+    .glass:hover {
+      transform: scale(1.03);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>サポートカテゴリを選択</h1>
-    <div class="grid">
-      <div class="card"><h2>サポートサーバー</h2></div>
-      <div class="card"><h2>マイクラサーバー</h2></div>
-      <div class="card"><h2>採用</h2></div>
-      <div class="card"><h2>その他</h2></div>
+    <div class="search-bar">
+      <input type="text" placeholder="サポート内容を検索…" />
+    </div>
+    <div class="menu">
+      <div class="glass">サポートサーバー</div>
+      <div class="glass">マイクラサーバー</div>
+      <div class="glass">採用</div>
+      <div class="glass">その他</div>
     </div>
   </div>
 </body>
