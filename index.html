@@ -1,142 +1,147 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>サポートセンター</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     * {
+      font-family: 'Zen Maru Gothic', sans-serif;
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Zen Maru Gothic", sans-serif;
     }
 
     body {
-      background: #f8f8f8;
+      background-color: #fff;
+      color: #333;
     }
 
-    /* ローディング画面 */
-    #loading-screen {
+    #loading {
       position: fixed;
-      top: 0;
-      left: 0;
       width: 100vw;
       height: 100vh;
       background: white;
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #333;
+      align-items: center;
       z-index: 9999;
-      transition: opacity 0.5s ease;
-    }
-
-    /* メイン画面 */
-    #main-content {
-      display: none;
-      padding: 2rem;
+      font-size: 24px;
     }
 
     header {
-      background-color: #ffffffcc;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 1rem 2rem;
+      padding: 20px;
       text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
     }
 
-    .grid {
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .search-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .search-container input {
+      padding: 10px;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      font-size: 16px;
+    }
+
+    main {
       display: grid;
-      gap: 2rem;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 20px 40px;
     }
 
     .card {
-      background-color: #ffffffcc;
-      backdrop-filter: blur(12px);
-      border-radius: 1.5rem;
-      padding: 1.5rem;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
+      background: #f9f9f9;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       text-align: center;
+      padding: 30px 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
     .card img {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 1rem;
+      width: 60px;
+      margin-bottom: 20px;
     }
 
     .card h2 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      font-size: 20px;
+      margin-bottom: 10px;
     }
 
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
+    .card button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #e0e0e0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .card button:hover {
+      background-color: #007bff;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <!-- ローディング画面 -->
-  <div id="loading-screen">読み込み中...</div>
+  <div id="loading">読み込み中...</div>
 
-  <!-- メインコンテンツ -->
-  <div id="main-content">
-    <header>サポートセンター</header>
-    <div class="grid">
-      <div class="card" onclick="location.href='#'">
-        <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png" alt="マイクラサーバー" />
-        <h2>マイクラサーバー</h2>
-        <p>あなたのMinecraftサーバーに関する情報はこちら</p>
-      </div>
-      <div class="card" onclick="location.href='#'">
-        <img src="https://cdn-icons-png.flaticon.com/512/6422/6422197.png" alt="サポートサーバー" />
-        <h2>サポートサーバー</h2>
-        <p>困ったらまずはこちらからサポートを受けましょう</p>
-      </div>
-      <div class="card" onclick="location.href='#'">
-        <img src="https://cdn-icons-png.flaticon.com/512/11270/11270122.png" alt="採用" />
-        <h2>採用</h2>
-        <p>チームに参加したい方はこちらをチェック</p>
-      </div>
-      <div class="card" onclick="location.href='#'">
-        <img src="https://cdn-icons-png.flaticon.com/512/17767/17767766.png" alt="その他" />
-        <h2>その他</h2>
-        <p>よくある質問やその他の情報はこちら</p>
-      </div>
+  <header>
+    <h1>サポートセンター</h1>
+    <div class="search-container">
+      <input type="text" placeholder="キーワードで検索...">
     </div>
-  </div>
+  </header>
 
-  <!-- スクリプト（ローディング制御） -->
+  <main>
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/128/6422/6422197.png" alt="サポートサーバー">
+      <h2>サポートサーバー</h2>
+      <button onclick="location.href='https://discord.com/'">開く</button>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/128/3914/3914704.png" alt="マイクラサーバー">
+      <h2>マイクラサーバー</h2>
+      <button onclick="location.href='#'">詳細</button>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/128/11270/11270122.png" alt="採用">
+      <h2>採用</h2>
+      <button onclick="location.href='#'">応募</button>
+    </div>
+
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/128/17767/17767766.png" alt="その他">
+      <h2>その他</h2>
+      <button onclick="location.href='#'">見る</button>
+    </div>
+  </main>
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const loadingScreen = document.getElementById("loading-screen");
-      const mainContent = document.getElementById("main-content");
-
-      // ローディング画面を2.5秒表示
+    // ローディングを2.2秒表示
+    window.addEventListener('load', () => {
       setTimeout(() => {
-        loadingScreen.style.opacity = "0";
-        setTimeout(() => {
-          loadingScreen.style.display = "none";
-          mainContent.style.display = "block";
-        }, 500); // フェードアウト用
-      }, 2500);
+        document.getElementById('loading').style.display = 'none';
+      }, 2200);
     });
   </script>
 </body>
