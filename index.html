@@ -1,81 +1,87 @@
-import React, { useEffect, useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Loader } from "lucide-react";
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>サポートセンター風サイト</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <style>
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      background-color: white;
+    }
 
-const categories = [
-  {
-    title: "サポートサーバー",
-    icon: "https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png",
-    link: "#",
-  },
-  {
-    title: "マイクラサーバー",
-    icon: "https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png",
-    link: "#",
-  },
-  {
-    title: "採用",
-    icon: "https://www.flaticon.com/free-icon-font/tools_11270122.png",
-    link: "#",
-  },
-  {
-    title: "その他",
-    icon: "https://www.flaticon.com/free-icon-font/menu-dots_17767766.png",
-    link: "#",
-  },
-];
+    .card:hover {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      transform: translateY(-2px);
+      transition: 0.3s ease;
+    }
 
-export default function SupportPage() {
-  const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
+    #loader {
+      background: white;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: bold;
+      font-family: 'Zen Maru Gothic', sans-serif;
+    }
+  </style>
+  <script>
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 2000); // 2秒表示
+    });
+  </script>
+</head>
+<body class="text-gray-900">
+  <!-- ローディング画面 -->
+  <div id="loader">読み込み中...</div>
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000); // 2秒間ローディング表示
-    return () => clearTimeout(timer);
-  }, []);
+  <div class="container mx-auto p-6 max-w-screen-lg">
+    <!-- 検索バー -->
+    <div class="mb-8">
+      <input type="text" placeholder="キーワード検索..." class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200" />
+    </div>
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-white">
-        <Loader className="h-12 w-12 animate-spin text-blue-500" />
-        <span className="ml-4 text-xl font-bold text-gray-700">読み込み中...</span>
+    <!-- グリッド -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- サポートサーバー -->
+      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/6422/6422197.svg" alt="Discord Icon" class="w-8 h-8 mb-3">
+        <h2 class="text-xl font-semibold mb-2">サポートサーバー</h2>
+        <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png" alt="サポート画像" class="w-full h-32 object-cover rounded-xl mb-2">
+        <p>困ったときはここからサポートを受けられます。</p>
       </div>
-    );
-  }
 
-  const filteredCategories = categories.filter((category) =>
-    category.title.toLowerCase().includes(search.toLowerCase())
-  );
-
-  return (
-    <main className="min-h-screen bg-white font-zen-maru px-4 py-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 text-center mb-4">サポートセンター</h1>
-          <p className="text-gray-600 text-center mb-6">サポートが必要なカテゴリを選んでください</p>
-          <Input
-            placeholder="検索"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full max-w-md mx-auto block border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-          />
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {filteredCategories.map((cat) => (
-            <a
-              key={cat.title}
-              href={cat.link}
-              className="flex items-center p-4 border border-gray-200 rounded-2xl shadow-sm transition duration-300 hover:shadow-xl hover:border-blue-400 hover:bg-blue-50"
-            >
-              <img src={cat.icon} alt={cat.title} className="w-12 h-12 rounded-md mr-4" />
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">{cat.title}</h2>
-              </div>
-            </a>
-          ))}
-        </div>
+      <!-- マイクラサーバー -->
+      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/3914/3914704.svg" alt="Server Icon" class="w-8 h-8 mb-3">
+        <h2 class="text-xl font-semibold mb-2">マイクラサーバー</h2>
+        <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png" alt="マイクラ画像" class="w-full h-32 object-cover rounded-xl mb-2">
+        <p>自分だけのMinecraftサーバーを無料で立てよう！</p>
       </div>
-    </main>
-  );
-}
+
+      <!-- 採用 -->
+      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/11270/11270122.svg" alt="Tools Icon" class="w-8 h-8 mb-3">
+        <h2 class="text-xl font-semibold mb-2">採用</h2>
+        <p>開発メンバー・運営スタッフを募集中です。</p>
+      </div>
+
+      <!-- その他 -->
+      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
+        <img src="https://www.flaticon.com/svg/static/icons/svg/17767/17767766.svg" alt="Other Icon" class="w-8 h-8 mb-3">
+        <h2 class="text-xl font-semibold mb-2">その他</h2>
+        <p>その他のお問い合わせや雑談はこちらから。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
