@@ -1,54 +1,69 @@
+// App.tsx
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import Image from "next/image";
+import { motion } from "framer-motion";
 
-const supportItems = [
+const categories = [
   {
     title: "サポートサーバー",
-    icon: "https://cdn-icons-png.flaticon.com/512/5968/5968756.png",
+    icon: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f4ac.svg",
+    description: "お困りのときはこちらのDiscordへ",
   },
   {
     title: "マイクラサーバー",
-    icon: "https://cdn-icons-png.flaticon.com/512/2875/2875433.png",
+    icon: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f5a5.svg",
+    description: "Minecraftの公開・MOD・管理サーバー紹介",
   },
   {
     title: "採用",
-    icon: "https://cdn-icons-png.flaticon.com/512/1828/1828911.png",
+    icon: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f4bc.svg",
+    description: "私たちと一緒に働きませんか？",
   },
   {
     title: "その他",
-    icon: "https://cdn-icons-png.flaticon.com/512/1828/1828859.png",
+    icon: "https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f4ca.svg",
+    description: "Q&Aやブログ記事など",
   },
 ];
 
-export default function SupportPage() {
+export default function App() {
+  const [search, setSearch] = useState("");
+
+  const filtered = categories.filter((item) =>
+    item.title.includes(search) || item.description.includes(search)
+  );
+
   return (
-    <main className="min-h-screen bg-white text-black font-zenMaruGothic p-6">
-      <h1 className="text-3xl font-bold mb-6">サポートセンター</h1>
-
-      <div className="mb-6">
-        <Input placeholder="検索..." className="w-full max-w-md border rounded px-4 py-2" />
+    <div className="min-h-screen bg-white px-6 py-10 font-zen">
+      <h1 className="text-3xl font-bold text-center mb-10">サポートページ</h1>
+      <div className="flex justify-center mb-8">
+        <Input
+          placeholder="検索..."
+          className="w-full max-w-md border-gray-300 shadow-sm"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {supportItems.map((item) => (
-          <Card
-            key={item.title}
-            className="flex flex-col items-center justify-center text-center p-4 transition-shadow duration-300 ease-in-out rounded-2xl shadow-md hover:shadow-lg hover:shadow-blue-200"
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        {filtered.map((item, i) => (
+          <motion.div
+            key={i}
+            whileHover={{ scale: 1.02, boxShadow: "0 0 20px rgba(0,0,0,0.1)" }}
+            className="rounded-2xl bg-white border border-gray-200 p-6 transition"
           >
-            <Image
-              src={item.icon}
-              alt={item.title}
-              width={64}
-              height={64}
-              className="mb-4"
-            />
-            <CardContent>
-              <h2 className="text-lg font-semibold">{item.title}</h2>
-            </CardContent>
-          </Card>
+            <Card>
+              <CardContent className="flex items-center gap-4">
+                <img src={item.icon} alt="" className="w-10 h-10" />
+                <div>
+                  <h2 className="text-xl font-semibold">{item.title}</h2>
+                  <p className="text-sm text-gray-600">{item.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         ))}
       </div>
-    </main>
+    </div>
   );
 }
