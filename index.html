@@ -5,7 +5,6 @@
   <title>紹介＆Q&Aサイト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* 全体スタイル */
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -38,14 +37,15 @@
       margin: auto;
     }
 
-    .glass-box {
-      background: rgba(255, 255, 255, 0.4);
-      border-radius: 1rem;
+    .glass {
+      background-color: rgba(255, 243, 243, 0.2);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       padding: 2rem;
       margin: 2rem 0;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     footer {
@@ -81,13 +81,13 @@
   </header>
 
   <div class="container">
-    <section id="about" class="glass-box">
+    <section id="about" class="glass">
       <h2>自己紹介</h2>
       <p>こんにちは！これはGitHubだけで作ったシンプルでモダンな紹介ページです。</p>
       <p>デザインには白と黒を基調とし、ガラスのような透明感（ガラスモーフィズム）を加えています。</p>
     </section>
 
-    <section class="glass-box">
+    <section class="glass">
       <h2>このサイトの目的</h2>
       <p>・自分の活動を紹介すること</p>
       <p>・よくある質問（Q&A）ページで読者の疑問を解決すること</p>
