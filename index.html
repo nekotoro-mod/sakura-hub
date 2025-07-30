@@ -2,47 +2,24 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>サポートセンター</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ふてほど丸ゴシック（Google Fontsでは提供されていないので代用 or 自分でホストが必要） -->
+  <title>サポートページ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Futahodo+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
-    @font-face {
-      font-family: 'FutohodoMaruGothic';
-      src: url('https://cdn.jsdelivr.net/gh/qrac/fude-fonts@main/futohodo-maru-gothic/FutohodoMaruGothic.otf') format('opentype');
-    }
-
     body {
       margin: 0;
-      font-family: 'FutohodoMaruGothic', sans-serif;
+      font-family: 'Futahodo Maru Gothic', sans-serif;
       background-image: url('https://cdn.discordapp.com/attachments/1380938547233558711/1400058700865212469/IMG_4486.jpeg?ex=688b41c6&is=6889f046&hm=8b4bc9f91d6fcf704248acebf20953c3326b8020098c0809aa1ab864d079cb14&');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
-      height: 100vh;
-    }
-
-    .navbar {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .nav-item {
-      margin: 10px 20px;
-      padding: 10px 20px;
-      font-size: 18px;
+      background-attachment: fixed;
       color: white;
-      text-decoration: none;
-      border-radius: 15px;
-      transition: background 0.3s;
     }
 
-    .nav-item:hover {
-      background-color: rgba(255, 255, 255, 0.2);
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 60px;
     }
 
     .glass {
@@ -53,40 +30,26 @@
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       padding: 20px;
-      margin: 40px auto;
-      max-width: 800px;
-      color: white;
+      text-align: center;
+      transition: transform 0.3s ease;
     }
 
-    @media (max-width: 768px) {
-      .nav-item {
-        font-size: 16px;
-        margin: 8px;
-      }
+    .glass:hover {
+      transform: translateY(-5px);
+    }
 
-      .glass {
-        margin: 20px 10px;
-      }
+    .glass h2 {
+      margin: 0;
+      font-size: 1.5em;
     }
   </style>
 </head>
 <body>
-
-  <nav class="navbar">
-    <a href="#" class="nav-item">スマホ</a>
-    <a href="#" class="nav-item">ノートPC</a>
-    <a href="#" class="nav-item">設定・トラブル</a>
-    <a href="#" class="nav-item">Q＆A</a>
-    <a href="#" class="nav-item">サポートサーバー</a>
-    <a href="#" class="nav-item">マイクラサーバー</a>
-    <a href="#" class="nav-item">採用</a>
-    <a href="#" class="nav-item">その他</a>
-  </nav>
-
-  <div class="glass">
-    <h2>ようこそ</h2>
-    <p>ここはサポートセンターです。カテゴリを選んで情報をご確認ください。</p>
+  <div class="container">
+    <div class="glass"><h2>サポートサーバー</h2></div>
+    <div class="glass"><h2>マイクラサーバー</h2></div>
+    <div class="glass"><h2>採用</h2></div>
+    <div class="glass"><h2>その他</h2></div>
   </div>
-
 </body>
 </html>
