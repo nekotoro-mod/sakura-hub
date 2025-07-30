@@ -2,89 +2,102 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>サポートセンター</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Zen Maru Gothic', sans-serif;
-      background-color: #ffffff;
+      background-color: white;
       color: #1d1d1f;
     }
+
     header {
+      padding: 40px 20px 20px;
       text-align: center;
-      padding: 60px 20px 30px;
     }
-    header h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
+
     .search-box {
-      text-align: center;
-      margin-bottom: 40px;
+      margin: 0 auto 30px;
+      max-width: 600px;
     }
+
     .search-box input {
-      width: 60%;
-      padding: 12px;
+      width: 100%;
+      padding: 14px 20px;
       font-size: 18px;
       border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 30px;
-      padding: 0 40px 60px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .card {
-      background-color: #f2f2f7;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
+      border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
     }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .card {
+      text-align: center;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      background-color: #f9f9f9;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
+
     .card img {
       width: 64px;
       height: 64px;
-      margin-bottom: 16px;
+      object-fit: contain;
+      margin-bottom: 10px;
     }
-    .card h2 {
-      font-size: 20px;
+
+    .card h3 {
       margin: 0;
+      font-size: 18px;
+      color: #1d1d1f;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>サポートセンター</h1>
     <div class="search-box">
-      <input type="text" placeholder="質問やキーワードで検索" />
+      <input type="text" placeholder="キーワードを検索" />
     </div>
   </header>
 
-  <main class="grid">
+  <section class="section-grid">
     <div class="card">
-      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png?ex=688b5d22&is=688a0ba2&hm=ede25da1f7bc1496c9f6c269ae8376bae044842cc9a420882e1bd447a58a78a3&" alt="サポートサーバーアイコン">
-      <h2>サポートサーバー</h2>
+      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png?ex=688b5d22&is=688a0ba2&hm=ede25da1f7bc1496c9f6c269ae8376bae044842cc9a420882e1bd447a58a78a3&" alt="サポートサーバー">
+      <h3>サポートサーバー</h3>
     </div>
+
     <div class="card">
-      <h2>マイクラサーバー</h2>
+      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png?ex=688b608d&is=688a0f0d&hm=a83d6c1e02b0c7ddd42da8d4c3fd18e9a21792185d7902b1d76fc46bb16d7e8f&" alt="マイクラサーバー">
+      <h3>マイクラサーバー</h3>
     </div>
+
     <div class="card">
-      <h2>採用</h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="採用">
+      <h3>採用</h3>
     </div>
+
     <div class="card">
-      <h2>その他</h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="その他">
+      <h3>その他</h3>
     </div>
-  </main>
+  </section>
 
 </body>
 </html>
