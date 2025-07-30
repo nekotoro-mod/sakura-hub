@@ -4,20 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>サポートセンター風サイト</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Zen Maru Gothic', sans-serif;
       background-color: white;
+      margin: 0;
+      color: #111;
     }
-
     .card:hover {
       box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
       transform: translateY(-2px);
       transition: 0.3s ease;
     }
-
     #loader {
       background: white;
       position: fixed;
@@ -31,54 +30,88 @@
       font-weight: bold;
       font-family: 'Zen Maru Gothic', sans-serif;
     }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+    .search {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .search input {
+      width: 80%;
+      max-width: 500px;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fafafa;
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .card img.icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+    }
+    .card h2 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.25rem;
+    }
   </style>
   <script>
     window.addEventListener('load', () => {
       setTimeout(() => {
         document.getElementById('loader').style.display = 'none';
-      }, 2000); // 2秒表示
+      }, 2000);
     });
   </script>
 </head>
-<body class="text-gray-900">
-  <!-- ローディング画面 -->
+<body>
   <div id="loader">読み込み中...</div>
 
-  <div class="container mx-auto p-6 max-w-screen-lg">
-    <!-- 検索バー -->
-    <div class="mb-8">
-      <input type="text" placeholder="キーワード検索..." class="w-full px-4 py-3 border border-gray-300 rounded-xl shadow focus:outline-none focus:ring-2 focus:ring-blue-400 transition duration-200" />
+  <div class="container">
+    <h1 style="text-align:center; font-size:2.5rem; margin-bottom:1.5rem;">サポートセンター</h1>
+
+    <div class="search">
+      <input type="text" placeholder="キーワード検索..." />
     </div>
 
-    <!-- グリッド -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- サポートサーバー -->
-      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/6422/6422197.svg" alt="Discord Icon" class="w-8 h-8 mb-3">
-        <h2 class="text-xl font-semibold mb-2">サポートサーバー</h2>
-        <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png" alt="サポート画像" class="w-full h-32 object-cover rounded-xl mb-2">
+    <div class="grid">
+      <div class="card">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord Icon" />
+        <h2>サポートサーバー</h2>
         <p>困ったときはここからサポートを受けられます。</p>
       </div>
 
-      <!-- マイクラサーバー -->
-      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/3914/3914704.svg" alt="Server Icon" class="w-8 h-8 mb-3">
-        <h2 class="text-xl font-semibold mb-2">マイクラサーバー</h2>
-        <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png" alt="マイクラ画像" class="w-full h-32 object-cover rounded-xl mb-2">
+      <div class="card">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1046/1046877.png" alt="Minecraft Server" />
+        <h2>マイクラサーバー</h2>
         <p>自分だけのMinecraftサーバーを無料で立てよう！</p>
       </div>
 
-      <!-- 採用 -->
-      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/11270/11270122.svg" alt="Tools Icon" class="w-8 h-8 mb-3">
-        <h2 class="text-xl font-semibold mb-2">採用</h2>
+      <div class="card">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/3524/3524630.png" alt="Tools Icon" />
+        <h2>採用</h2>
         <p>開発メンバー・運営スタッフを募集中です。</p>
       </div>
 
-      <!-- その他 -->
-      <div class="card p-6 rounded-2xl border border-gray-200 shadow bg-white hover:cursor-pointer">
-        <img src="https://www.flaticon.com/svg/static/icons/svg/17767/17767766.svg" alt="Other Icon" class="w-8 h-8 mb-3">
-        <h2 class="text-xl font-semibold mb-2">その他</h2>
+      <div class="card">
+        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Other Icon" />
+        <h2>その他</h2>
         <p>その他のお問い合わせや雑談はこちらから。</p>
       </div>
     </div>
