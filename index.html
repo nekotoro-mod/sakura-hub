@@ -1,148 +1,81 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>サポートセンター</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-  <style>
-    * {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+import React, { useEffect, useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Loader } from "lucide-react";
 
-    body {
-      background-color: #fff;
-      color: #333;
-    }
+const categories = [
+  {
+    title: "サポートサーバー",
+    icon: "https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png",
+    link: "#",
+  },
+  {
+    title: "マイクラサーバー",
+    icon: "https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png",
+    link: "#",
+  },
+  {
+    title: "採用",
+    icon: "https://www.flaticon.com/free-icon-font/tools_11270122.png",
+    link: "#",
+  },
+  {
+    title: "その他",
+    icon: "https://www.flaticon.com/free-icon-font/menu-dots_17767766.png",
+    link: "#",
+  },
+];
 
-    #loading {
-      position: fixed;
-      width: 100vw;
-      height: 100vh;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      font-size: 24px;
-    }
+export default function SupportPage() {
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
-    header {
-      padding: 20px;
-      text-align: center;
-    }
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000); // 2秒間ローディング表示
+    return () => clearTimeout(timer);
+  }, []);
 
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-white">
+        <Loader className="h-12 w-12 animate-spin text-blue-500" />
+        <span className="ml-4 text-xl font-bold text-gray-700">読み込み中...</span>
+      </div>
+    );
+  }
 
-    .search-container {
-      text-align: center;
-      margin-bottom: 30px;
-    }
+  const filteredCategories = categories.filter((category) =>
+    category.title.toLowerCase().includes(search.toLowerCase())
+  );
 
-    .search-container input {
-      padding: 10px;
-      width: 60%;
-      max-width: 400px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      font-size: 16px;
-    }
+  return (
+    <main className="min-h-screen bg-white font-zen-maru px-4 py-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 text-center mb-4">サポートセンター</h1>
+          <p className="text-gray-600 text-center mb-6">サポートが必要なカテゴリを選んでください</p>
+          <Input
+            placeholder="検索"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-full max-w-md mx-auto block border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
 
-    main {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      padding: 20px 40px;
-    }
-
-    .card {
-      background: #f9f9f9;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 30px 20px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .card img {
-      width: 60px;
-      margin-bottom: 20px;
-    }
-
-    .card h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    .card button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background-color: #e0e0e0;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .card button:hover {
-      background-color: #007bff;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-  <div id="loading">読み込み中...</div>
-
-  <header>
-    <h1>サポートセンター</h1>
-    <div class="search-container">
-      <input type="text" placeholder="キーワードで検索...">
-    </div>
-  </header>
-
-  <main>
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/6422/6422197.png" alt="サポートサーバー">
-      <h2>サポートサーバー</h2>
-      <button onclick="location.href='https://discord.com/'">開く</button>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/3914/3914704.png" alt="マイクラサーバー">
-      <h2>マイクラサーバー</h2>
-      <button onclick="location.href='#'">詳細</button>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/11270/11270122.png" alt="採用">
-      <h2>採用</h2>
-      <button onclick="location.href='#'">応募</button>
-    </div>
-
-    <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/128/17767/17767766.png" alt="その他">
-      <h2>その他</h2>
-      <button onclick="location.href='#'">見る</button>
-    </div>
-  </main>
-
-  <script>
-    // ローディングを2.2秒表示
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        document.getElementById('loading').style.display = 'none';
-      }, 2200);
-    });
-  </script>
-</body>
-</html>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {filteredCategories.map((cat) => (
+            <a
+              key={cat.title}
+              href={cat.link}
+              className="flex items-center p-4 border border-gray-200 rounded-2xl shadow-sm transition duration-300 hover:shadow-xl hover:border-blue-400 hover:bg-blue-50"
+            >
+              <img src={cat.icon} alt={cat.title} className="w-12 h-12 rounded-md mr-4" />
+              <div>
+                <h2 className="text-lg font-semibold text-gray-900">{cat.title}</h2>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
