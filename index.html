@@ -2,10 +2,102 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>わたしのはじめてのサイト</title>
+  <title>紹介＆Q&Aサイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 全体スタイル */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f9f9f9;
+      color: #111;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    header a {
+      margin-left: 1rem;
+      text-decoration: none;
+      color: #111;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 4rem;
+      color: #777;
+    }
+
+    a.button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    a.button:hover {
+      background: #333;
+    }
+  </style>
 </head>
 <body>
-  <h1>こんにちは！</h1>
-  <p>これはGitHubだけで作ったページです！</p>
+
+  <header>
+    <div><strong>わたしのサイト</strong></div>
+    <nav>
+      <a href="#about">紹介</a>
+      <a href="qa.html">Q&A</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about" class="glass-box">
+      <h2>自己紹介</h2>
+      <p>こんにちは！これはGitHubだけで作ったシンプルでモダンな紹介ページです。</p>
+      <p>デザインには白と黒を基調とし、ガラスのような透明感（ガラスモーフィズム）を加えています。</p>
+    </section>
+
+    <section class="glass-box">
+      <h2>このサイトの目的</h2>
+      <p>・自分の活動を紹介すること</p>
+      <p>・よくある質問（Q&A）ページで読者の疑問を解決すること</p>
+      <a class="button" href="qa.html">Q&Aページを見る</a>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 わたしのサイト
+  </footer>
+
 </body>
 </html>
