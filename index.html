@@ -2,102 +2,100 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>サポートセンター</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet" />
   <style>
     body {
-      margin: 0;
       font-family: 'Zen Maru Gothic', sans-serif;
-      background-color: white;
-      color: #1d1d1f;
+      margin: 0;
+      background-color: #ffffff;
+      color: #111;
     }
-
     header {
-      padding: 40px 20px 20px;
       text-align: center;
+      padding: 40px 20px 20px;
     }
-
-    .search-box {
-      margin: 0 auto 30px;
-      max-width: 600px;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
     }
-
-    .search-box input {
-      width: 100%;
-      padding: 14px 20px;
-      font-size: 18px;
+    .search-bar {
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: 60%;
+      max-width: 500px;
+      padding: 12px;
       border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 25px;
+      font-size: 16px;
     }
-
-    .section-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
       padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
-
     .card {
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      background-color: #f9f9f9;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s, box-shadow 0.2s;
+      background: #f9f9f9;
     }
-
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
-
     .card img {
-      width: 64px;
-      height: 64px;
-      object-fit: contain;
-      margin-bottom: 10px;
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+      filter: grayscale(100%);
     }
-
-    .card h3 {
+    .card h2 {
+      font-size: 1.2rem;
       margin: 0;
-      font-size: 18px;
-      color: #1d1d1f;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      input[type="text"] {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <div class="search-box">
-      <input type="text" placeholder="キーワードを検索" />
+    <h1>サポートセンター</h1>
+    <div class="search-bar">
+      <input type="text" placeholder="質問やトラブル内容を検索…" />
     </div>
   </header>
 
-  <section class="section-grid">
+  <section class="grid">
     <div class="card">
-      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png?ex=688b5d22&is=688a0ba2&hm=ede25da1f7bc1496c9f6c269ae8376bae044842cc9a420882e1bd447a58a78a3&" alt="サポートサーバー">
-      <h3>サポートサーバー</h3>
+      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400088081117216768/IMG_4488.png" alt="サポートサーバー">
+      <h2>サポートサーバー</h2>
     </div>
-
     <div class="card">
-      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png?ex=688b608d&is=688a0f0d&hm=a83d6c1e02b0c7ddd42da8d4c3fd18e9a21792185d7902b1d76fc46bb16d7e8f&" alt="マイクラサーバー">
-      <h3>マイクラサーバー</h3>
+      <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png" alt="マイクラサーバー">
+      <h2>マイクラサーバー</h2>
     </div>
-
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="採用">
-      <h3>採用</h3>
+      <img src="https://cdn-icons-png.flaticon.com/512/11270/11270122.png" alt="採用">
+      <h2>採用</h2>
     </div>
-
     <div class="card">
-      <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="その他">
-      <h3>その他</h3>
+      <img src="https://cdn-icons-png.flaticon.com/512/17767/17767766.png" alt="その他">
+      <h2>その他</h2>
     </div>
   </section>
-
 </body>
 </html>
