@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>サポートページ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <title>サポートセンター</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
   <style>
     * {
-      font-family: 'Zen Maru Gothic', sans-serif;
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+      font-family: "Zen Maru Gothic", sans-serif;
     }
 
     body {
-      background-color: #fff;
-      color: #000;
+      background: #f8f8f8;
     }
 
     /* ローディング画面 */
@@ -26,105 +26,117 @@
       width: 100vw;
       height: 100vh;
       background: white;
-      z-index: 9999;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5em;
+      font-size: 1.5rem;
       font-weight: bold;
+      color: #333;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
+    /* メイン画面 */
+    #main-content {
+      display: none;
       padding: 2rem;
     }
 
     header {
+      background-color: #ffffffcc;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
       text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
       margin-bottom: 2rem;
     }
 
-    .search-box {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .search-box input {
-      width: 80%;
-      padding: 1rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-    }
-
-    .category-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
-    .category-card {
-      background: #f9f9f9;
-      border-radius: 20px;
-      padding: 2rem;
+    .card {
+      background-color: #ffffffcc;
+      backdrop-filter: blur(12px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
       text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s ease;
     }
 
-    .category-card:hover {
+    .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
 
-    .category-card img {
-      width: 50px;
-      height: 50px;
+    .card img {
+      width: 64px;
+      height: 64px;
       margin-bottom: 1rem;
     }
 
-    .category-card h2 {
-      font-size: 1.2rem;
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <!-- ✅ ローディング画面 -->
+  <!-- ローディング画面 -->
   <div id="loading-screen">読み込み中...</div>
 
-  <div class="container">
-    <header>
-      <h1>サポートセンター</h1>
-    </header>
-
-    <div class="search-box">
-      <input type="text" placeholder="キーワードで検索..." />
-    </div>
-
-    <div class="category-grid">
-      <div class="category-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/6422/6422197.png" alt="サポートサーバー">
-        <h2>サポートサーバー</h2>
-      </div>
-      <div class="category-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/3914/3914704.png" alt="マイクラサーバー">
+  <!-- メインコンテンツ -->
+  <div id="main-content">
+    <header>サポートセンター</header>
+    <div class="grid">
+      <div class="card" onclick="location.href='#'">
+        <img src="https://cdn.discordapp.com/attachments/1380938547233558711/1400091751439405116/IMG_4491.png" alt="マイクラサーバー" />
         <h2>マイクラサーバー</h2>
+        <p>あなたのMinecraftサーバーに関する情報はこちら</p>
       </div>
-      <div class="category-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/11270/11270122.png" alt="採用">
+      <div class="card" onclick="location.href='#'">
+        <img src="https://cdn-icons-png.flaticon.com/512/6422/6422197.png" alt="サポートサーバー" />
+        <h2>サポートサーバー</h2>
+        <p>困ったらまずはこちらからサポートを受けましょう</p>
+      </div>
+      <div class="card" onclick="location.href='#'">
+        <img src="https://cdn-icons-png.flaticon.com/512/11270/11270122.png" alt="採用" />
         <h2>採用</h2>
+        <p>チームに参加したい方はこちらをチェック</p>
       </div>
-      <div class="category-card">
-        <img src="https://cdn-icons-png.flaticon.com/512/17767/17767766.png" alt="その他">
+      <div class="card" onclick="location.href='#'">
+        <img src="https://cdn-icons-png.flaticon.com/512/17767/17767766.png" alt="その他" />
         <h2>その他</h2>
+        <p>よくある質問やその他の情報はこちら</p>
       </div>
     </div>
   </div>
 
+  <!-- スクリプト（ローディング制御） -->
   <script>
-    window.addEventListener("load", () => {
-      const loader = document.getElementById("loading-screen");
-      loader.style.display = "none";
+    document.addEventListener("DOMContentLoaded", function () {
+      const loadingScreen = document.getElementById("loading-screen");
+      const mainContent = document.getElementById("main-content");
+
+      // ローディング画面を2.5秒表示
+      setTimeout(() => {
+        loadingScreen.style.opacity = "0";
+        setTimeout(() => {
+          loadingScreen.style.display = "none";
+          mainContent.style.display = "block";
+        }, 500); // フェードアウト用
+      }, 2500);
     });
   </script>
 </body>
