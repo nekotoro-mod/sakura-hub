@@ -7,29 +7,100 @@
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Zen Maru Gothic', sans-serif;
-      background-color: #ffffff;
-      color: #1d1d1f;
+      background-color: #fff;
+      color: #111;
+      margin: 0;
+      padding: 0;
     }
 
-    .header {
+    header {
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 3rem 1rem 1rem;
+      border-bottom: 1px solid #ccc;
     }
 
-    .header h1 {
-      font-size: 2.5rem;
+    header h1 {
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    .search-box {
+    .search-container {
       display: flex;
       justify-content: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
-    .search-box input {
+    .search-container input {
       width: 90%;
       max-width: 600px;
-      padding: 1rem;
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>サポートセンター</h1>
+    <div class="search-container">
+      <input type="text" placeholder="サポート内容を検索..." />
+    </div>
+  </header>
+
+  <nav>
+    <div class="card">
+      <h2>サポートサーバー</h2>
+      <p>コミュニティの参加・サポート情報</p>
+    </div>
+    <div class="card">
+      <h2>マイクラサーバー</h2>
+      <p>構築方法・パネル操作・トラブル対応</p>
+    </div>
+    <div class="card">
+      <h2>採用</h2>
+      <p>募集情報・応募方法・チーム紹介</p>
+    </div>
+    <div class="card">
+      <h2>その他</h2>
+      <p>よくある質問や雑多な案内</p>
+    </div>
+  </nav>
+</body>
+</html>
