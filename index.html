@@ -2,40 +2,21 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>紹介＆Q&Aサイト</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>紹介とQ&Aサイト</title>
   <style>
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
-      background: url('https://cdn.discordapp.com/attachments/1380938547233558711/1400023997600763914/IMG_4479.jpeg?ex=688b2174&is=6889cff4&hm=3ce07fe832de2a94f6ed374941c0d2e735136960213f307c1115d4320e3fe70e&') no-repeat center center fixed;
+      background: url('https://cdn.discordapp.com/attachments/1380938547233558711/1400051267920986263/IMG_4484.jpeg?ex=688b3ad9&is=6889e959&hm=50cf4cbd4f55d7c6cd7e734df9af65587cb98084daf08d7b9ef32db846969246&') no-repeat center center fixed;
       background-size: cover;
-      color: #111;
-    }
-
-    header {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #ccc;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    header a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #111;
-      font-weight: bold;
+      color: #fff;
     }
 
     .container {
-      padding: 2rem;
       max-width: 900px;
-      margin: auto;
+      margin: 60px auto;
+      padding: 20px;
     }
 
     .glass {
@@ -45,61 +26,56 @@
       border-radius: 20px;
       border: 1px solid rgba(255, 255, 255, 0.25);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      padding: 2rem;
-      margin: 2rem 0;
+      padding: 30px;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 4rem;
+    h1, h2 {
       color: #fff;
-      text-shadow: 0 0 5px #000;
+      margin-top: 0;
     }
 
-    a.button {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 1rem;
+    .qa {
+      margin-top: 30px;
     }
 
-    a.button:hover {
-      background: #333;
+    .qa-item {
+      margin-bottom: 20px;
+    }
+
+    .qa-item h3 {
+      margin: 0 0 10px;
+      color: #ffffff;
+    }
+
+    .qa-item p {
+      margin: 0;
+      color: #dddddd;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div><strong>わたしのサイト</strong></div>
-    <nav>
-      <a href="#about">紹介</a>
-      <a href="qa.html">Q&A</a>
-    </nav>
-  </header>
-
   <div class="container">
-    <section id="about" class="glass">
-      <h2>自己紹介</h2>
-      <p>こんにちは！これはGitHubだけで作ったシンプルでモダンな紹介ページです。</p>
-      <p>背景画像とガラス風デザインで、おしゃれな印象にしています。</p>
-    </section>
+    <div class="glass">
+      <h1>ようこそ！</h1>
+      <p>このサイトでは、プロジェクトの紹介とQ&Aをご覧いただけます。</p>
 
-    <section class="glass">
-      <h2>このサイトの目的</h2>
-      <p>・自分の活動を紹介すること</p>
-      <p>・よくある質問（Q&A）ページで読者の疑問を解決すること</p>
-      <a class="button" href="qa.html">Q&Aページを見る</a>
-    </section>
+      <div class="qa">
+        <h2>よくある質問（Q&A）</h2>
+        <div class="qa-item">
+          <h3>Q. このサイトは何のためにありますか？</h3>
+          <p>A. プロジェクトの紹介や、ユーザーからのよくある質問に答えるためです。</p>
+        </div>
+        <div class="qa-item">
+          <h3>Q. このスタイルは何ですか？</h3>
+          <p>A. ガラスモーフィズムと呼ばれる、背景をぼかしてガラスのように見せるデザイン手法です。</p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <footer>
-    © 2025 わたしのサイト
-  </footer>
-
 </body>
 </html>
